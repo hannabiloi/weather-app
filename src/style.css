@@ -26,17 +26,6 @@ hr {
   margin-top: 0;
   margin-bottom: 10px;
 }
-a {
-  text-decoration: none;
-  color: #393e46;
-}
-
-a:hover {
-  background-color: #f2f2f2;
-  color: #393e46;
-  border-radius: 14px;
-  padding: 4px;
-}
 
 button {
   margin: 5px 0;
@@ -75,4 +64,17 @@ button {
   color: #5c636e;
   font-weight: 300;
   padding: 10px 0;
+}
+#celsius,
+#fahrenheit {
+  text-decoration: none;
+  color: #393e46;
+}
+
+#celsius:hover,
+#fahrenheit:hover {
+  background-color: #f2f2f2;
+  color: #393e46;
+  border-radius: 14px;
+  padding: 4px;
 }

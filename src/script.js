@@ -83,7 +83,6 @@ searchCityBut.addEventListener("click", changeCity);
 //   let currentTemp = document.querySelector("#temp");
 //   currentTemp.innerHTML = temp;
 // };
-
 // let toFahrenheit = function (event) {
 //   event.preventDefault();
 //   let currentTempF = document.querySelector("#temp");
