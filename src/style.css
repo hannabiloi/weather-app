@@ -1,0 +1,78 @@
+body {
+  width: 30%;
+  text-align: center;
+  margin: 30px;
+  padding: 20px;
+  border: 2px solid #d3d6db;
+  border-radius: 4px;
+  font-family: "Comfortaa", cursive;
+}
+
+h1 {
+  text-align: center;
+  font-size: 28px;
+  color: #393e46;
+  font-weight: 600;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #393e46;
+  font-weight: 300;
+}
+
+hr {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+a {
+  text-decoration: none;
+  color: #393e46;
+}
+
+a:hover {
+  background-color: #f2f2f2;
+  color: #393e46;
+  border-radius: 14px;
+  padding: 4px;
+}
+
+button {
+  margin: 5px 0;
+}
+
+.current-weather {
+  font-size: 20px;
+  color: #393e46;
+}
+
+.current-conditions {
+  font-size: 16px;
+  padding-top: 10px;
+  margin-bottom: 0;
+  color: #393e46;
+}
+
+.current-conditions-value {
+  font-size: 14px;
+}
+
+.days {
+  font-size: 16px;
+  color: #5c636e;
+  font-weight: 500;
+}
+
+.days-cloudiness {
+  font-size: 16px;
+  color: #5c636e;
+  padding-top: 10px;
+}
+
+.temperature {
+  font-size: 15px;
+  color: #5c636e;
+  font-weight: 300;
+  padding: 10px 0;
+}
