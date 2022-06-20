@@ -39,7 +39,8 @@ function getApi(city) {
 let getWeather = function (response) {
   console.log(response.data);
   let temp = document.querySelector("#temp");
-  temp.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemp = response.data.main.temp;
+  temp.innerHTML = Math.round(celsiusTemp);
   let city = document.querySelector("#city");
   city.innerHTML = response.data.name;
   let weather = document.querySelector("#weather-sky");
@@ -91,24 +92,24 @@ let searchCityBut = document.querySelector("#search-city-button");
 searchCityBut.addEventListener("click", changeCity);
 
 // change temperature to C and to F
-// const currentTemp = document.querySelector("#temp");
-// currentTemp.innerHTML = 27;
-// let temp = 27;
-// let toCelsius = function (event) {
-//   event.preventDefault();
-//   let currentTemp = document.querySelector("#temp");
-//   currentTemp.innerHTML = temp;
-// };
-// let toFahrenheit = function (event) {
-//   event.preventDefault();
-//   let currentTempF = document.querySelector("#temp");
-//   currentTempF.innerHTML = Math.round(temp * 1.8 + 32);
-// };
+// let temp = document.querySelector("#temp").innerHTML;
+let celsiusTemp = null;
 
-// let currentTempInCel = document.querySelector("#celsius");
-// currentTempInCel.addEventListener("click", toCelsius);
+let toCelsius = function (event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("#temp");
+  currentTemp.innerHTML = Math.round(celsiusTemp);
+};
+let toFahrenheit = function (event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("#temp");
+  currentTemp.innerHTML = Math.round(celsiusTemp * 1.8 + 32);
+};
 
-// let currentTempInFahrenheit = document.querySelector("#fahrenheit");
-// currentTempInFahrenheit.addEventListener("click", toFahrenheit);
+let currentTempInCel = document.querySelector("#celsius");
+currentTempInCel.addEventListener("click", toCelsius);
+
+let currentTempInFahrenheit = document.querySelector("#fahrenheit");
+currentTempInFahrenheit.addEventListener("click", toFahrenheit);
 
 // get current location
