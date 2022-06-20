@@ -1,13 +1,15 @@
 body {
   max-width: 40%;
-  text-align: center;
   margin: 30px;
   padding: 20px;
-  border: 2px solid #d3d6db;
-  border-radius: 4px;
   font-family: "Comfortaa", cursive;
 }
+.container {
+  text-align: center;
 
+  border: 2px solid #d3d6db;
+  border-radius: 6px;
+}
 h1 {
   text-align: center;
   font-size: 28px;
@@ -30,6 +32,11 @@ hr {
 
 button {
   margin: 5px 0;
+}
+a {
+  color: #9c9fa3;
+  font-weight: 300;
+  text-decoration: none;
 }
 
 .current-weather {
@@ -71,16 +78,18 @@ button {
   font-weight: 300;
   padding: 10px 0;
 }
-#celsius,
-#fahrenheit {
-  text-decoration: none;
+
+.active {
+  cursor: default;
   color: #393e46;
 }
-
-#celsius:hover,
-#fahrenheit:hover {
-  background-color: #f2f2f2;
+.active:hover {
   color: #393e46;
-  border-radius: 14px;
-  padding: 4px;
+  cursor: default;
+  text-decoration: none;
+}
+
+.link-to-github {
+  color: #393e46;
+  font-size: 13px;
 }

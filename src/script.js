@@ -97,11 +97,15 @@ let celsiusTemp = null;
 
 let toCelsius = function (event) {
   event.preventDefault();
+  currentTempInFahrenheit.classList.remove("active");
+  currentTempInCel.classList.add("active");
   let currentTemp = document.querySelector("#temp");
   currentTemp.innerHTML = Math.round(celsiusTemp);
 };
 let toFahrenheit = function (event) {
   event.preventDefault();
+  currentTempInCel.classList.remove("active");
+  currentTempInFahrenheit.classList.add("active");
   let currentTemp = document.querySelector("#temp");
   currentTemp.innerHTML = Math.round(celsiusTemp * 1.8 + 32);
 };
