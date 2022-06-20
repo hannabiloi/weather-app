@@ -1,28 +1,34 @@
 //get current date and time
-let now = new Date();
-let h2 = document.querySelector("h2");
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
+  let date = now.getDate();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-let date = now.getDate();
-let hours = now.getHours();
-let minutes = now.getMinutes();
-
-let year = now.getFullYear();
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-let month = months[now.getMonth()];
-h2.innerHTML = `${date} ${month} ${year}, ${hours}:${minutes}`;
+  let year = now.getFullYear();
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[now.getMonth()];
+  return `${date} ${month} ${year}, ${hours}:${minutes}`;
+}
 
 //change city on form, add event on form
 const apiKey = "f96a36c366f556dae54ef30478f423d0";
@@ -41,6 +47,10 @@ let getCurrentWeather = function (response) {
   tempMin.innerHTML = Math.round(response.data.main.temp_min);
   let windSpeed = document.querySelector("#wind-speed");
   windSpeed.innerHTML = Math.round(response.data.wind.speed);
+  let date = document.querySelector("#current-date");
+  date.innerHTML = formatDate(response.data.dt * 1000);
+  let icon = document.querySelector("#icon");
+  icon.setAttribute("src", `images/${response.data.weather[0].icon}.svg`);
 };
 // get current location and current temperature
 function showLocation(position) {
@@ -67,6 +77,10 @@ let getWeather = function (response) {
   tempMin.innerHTML = Math.round(response.data.main.temp_min);
   let windSpeed = document.querySelector("#wind-speed");
   windSpeed.innerHTML = Math.round(response.data.wind.speed);
+  let date = document.querySelector("#current-date");
+  date.innerHTML = formatDate(response.data.dt * 1000);
+  let icon = document.querySelector("#icon");
+  icon.setAttribute("src", `images/${response.data.weather[0].icon}.svg`);
 };
 
 //change city button
