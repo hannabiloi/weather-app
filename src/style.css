@@ -1,5 +1,5 @@
 body {
-  width: 40%;
+  max-width: 40%;
   text-align: center;
   margin: 30px;
   padding: 20px;
@@ -13,6 +13,7 @@ h1 {
   font-size: 28px;
   color: #393e46;
   font-weight: 600;
+  text-transform: capitalize;
 }
 
 h2 {

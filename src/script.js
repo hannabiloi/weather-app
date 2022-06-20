@@ -29,13 +29,18 @@ const apiKey = "f96a36c366f556dae54ef30478f423d0";
 //get real temperature from open weather api
 let getCurrentWeather = function (response) {
   console.log(response.data);
-  let temperature = Math.round(response.data.main.temp);
   let temp = document.querySelector("#temp");
-  temp.innerHTML = temperature;
-  let city = document.querySelector("h1");
+  temp.innerHTML = Math.round(response.data.main.temp);
+  let city = document.querySelector("#city");
   city.innerHTML = response.data.name;
   let weather = document.querySelector("#weather-sky");
   weather.innerHTML = response.data.weather[0].main;
+  let tempMax = document.querySelector("#temp-max");
+  tempMax.innerHTML = Math.round(response.data.main.temp_max);
+  let tempMin = document.querySelector("#temp-min");
+  tempMin.innerHTML = Math.round(response.data.main.temp_min);
+  let windSpeed = document.querySelector("#wind-speed");
+  windSpeed.innerHTML = Math.round(response.data.wind.speed);
 };
 // get current location and current temperature
 function showLocation(position) {
@@ -50,13 +55,18 @@ function getCurrentPosition() {
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentPosition);
+
 let getWeather = function (response) {
-  console.log(response.data);
-  let temperature = Math.round(response.data.main.temp);
   let temp = document.querySelector("#temp");
-  temp.innerHTML = temperature;
+  temp.innerHTML = Math.round(response.data.main.temp);
   let weather = document.querySelector("#weather-sky");
   weather.innerHTML = response.data.weather[0].main;
+  let tempMax = document.querySelector("#temp-max");
+  tempMax.innerHTML = Math.round(response.data.main.temp_max);
+  let tempMin = document.querySelector("#temp-min");
+  tempMin.innerHTML = Math.round(response.data.main.temp_min);
+  let windSpeed = document.querySelector("#wind-speed");
+  windSpeed.innerHTML = Math.round(response.data.wind.speed);
 };
 
 //change city button

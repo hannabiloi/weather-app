@@ -27,7 +27,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Wrocław</h1>
+      <h1 id="city"></h1>
       <h2></h2>
       <div class="row justify-content-md-center current-weather">
         <div class="col-4">
@@ -37,17 +37,23 @@
         <div class="col-4">
           <i class="bi bi-brightness-high-fill"></i>
         </div>
-        <div class="col-4" id="weather-sky">Sunny</div>
+        <div class="col-4" id="weather-sky"></div>
       </div>
       <div class="row current-conditions">
         <div class="col-6 text-start">
-          Precipitation <i class="bi bi-umbrella"></i>
+          <div>
+            <i class="bi bi-thermometer-high"></i>
+            <span id="temp-max"></span>°C
+          </div>
+          <div>
+            <i class="bi bi-thermometer-low"></i>
+            <span id="temp-min"></span>°C
+          </div>
         </div>
-        <div class="col-6 text-end">Wind <i class="bi bi-wind"></i></div>
-      </div>
-      <div class="row current-conditions-value">
-        <div class="col-6 text-start">10%</div>
-        <div class="col-6 text-end">16 km/h</div>
+        <div class="col-6 text-end">
+          <div>Wind <i class="bi bi-wind"></i></div>
+          <div><span id="wind-speed"></span> km/h</div>
+        </div>
       </div>
       <hr />
       <div class="row row-cols-5 days">
