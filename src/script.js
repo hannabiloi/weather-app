@@ -128,34 +128,17 @@ currentTempInFahrenheit.addEventListener("click", toFahrenheit);
 //create 5 days forecast
 
 function displayForecast(response) {
-  console.log(response.data);
-  let days = [
-    "Sun",
-    "Mon",
-    "Tue",
-    "Wed",
-    "Thu",
-    "Fri",
-    "Sat",
-    "Sun",
-    "Mon",
-    "Tue",
-    "Wed",
-    "Thu",
-    "Fri",
-    "Sat",
-  ];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row row-cols-5">`;
-  let now = new Date();
-  let today = now.getDay();
+
   for (let i = 1; i <= 5; i = i + 1) {
     forecastHTML =
       forecastHTML +
       `
       <div class="col"">
         <div class="week-days">${
-          days[today + i]
+          days[new Date(response.data.daily[i].dt * 1000).getDay()]
         }</div><div class="days-forecast-icon"><img src="images/${
         response.data.daily[i].weather[0].icon
       }.svg" class="days-forecast-icon" width="25px"/></div>
