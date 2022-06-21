@@ -117,3 +117,53 @@ let currentTempInFahrenheit = document.querySelector("#fahrenheit");
 currentTempInFahrenheit.addEventListener("click", toFahrenheit);
 
 // get current location
+//create 5 days forecast
+
+// function daysOfWeek() {
+//   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+//   // let now = new Date();
+//   // let today = now.getDay();
+//   let day = document.querySelector("#week-days");
+//   days.forEach((el) => {
+//     day.innerHTML = `<div class="col">${el}</div>`;
+//   });
+// }
+function displayForecast() {
+  let days = [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+  ];
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row row-cols-5">`;
+  let now = new Date();
+  let today = now.getDay();
+  for (let i = 1; i <= 5; i = i + 1) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col"">
+        <div class="week-days">${
+          days[today + i]
+        }</div><div class="days-cloudiness"><i class="bi bi-cloud-lightning-rain"></i></div>
+          <div class="temperature">25°C</div>
+        </div>
+          `;
+  }
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+displayForecast();

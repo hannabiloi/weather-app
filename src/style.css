@@ -1,15 +1,14 @@
 body {
   max-width: 40%;
-  margin: 30px;
-  padding: 20px;
-  font-family: "Comfortaa", cursive;
-}
-.container {
+  margin: 50px;
   text-align: center;
-
+  margin: 30px;
+  padding: 20px 20px 5px 20px;
   border: 2px solid #d3d6db;
   border-radius: 6px;
+  font-family: "Comfortaa", cursive;
 }
+
 h1 {
   text-align: center;
   font-size: 28px;
@@ -60,7 +59,7 @@ a {
   font-size: 14px;
 }
 
-.days {
+.week-days {
   font-size: 16px;
   color: #5c636e;
   font-weight: 500;
@@ -90,6 +89,9 @@ a {
 }
 
 .link-to-github {
+  display: block;
   color: #393e46;
   font-size: 13px;
+  margin-bottom: 0;
+  justify-content: start;
 }
