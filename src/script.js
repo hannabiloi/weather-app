@@ -35,6 +35,12 @@ function getApi(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${h1.innerHTML}&appid=${apiKey}&units=metric`;
   axios(apiUrl).then(getWeather);
 }
+
+function getForecast(coordinates) {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
+
 //get real temperature from open weather api
 let getWeather = function (response) {
   console.log(response.data);
@@ -56,6 +62,8 @@ let getWeather = function (response) {
   let icon = document.querySelector("#icon");
   icon.setAttribute("src", `images/${response.data.weather[0].icon}.svg`);
   icon.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 };
 // get current location and current temperature
 function showLocation(position) {
@@ -119,16 +127,8 @@ currentTempInFahrenheit.addEventListener("click", toFahrenheit);
 // get current location
 //create 5 days forecast
 
-// function daysOfWeek() {
-//   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-//   // let now = new Date();
-//   // let today = now.getDay();
-//   let day = document.querySelector("#week-days");
-//   days.forEach((el) => {
-//     day.innerHTML = `<div class="col">${el}</div>`;
-//   });
-// }
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let days = [
     "Sun",
     "Mon",
@@ -156,14 +156,16 @@ function displayForecast() {
       <div class="col"">
         <div class="week-days">${
           days[today + i]
-        }</div><div class="days-cloudiness"><i class="bi bi-cloud-lightning-rain"></i></div>
-          <div class="temperature">25°C</div>
+        }</div><div class="days-forecast-icon"><img src="images/${
+        response.data.daily[i].weather[0].icon
+      }.svg" class="days-forecast-icon" width="25px"/></div>
+          <div class="temperature">${Math.round(
+            response.data.daily[i].temp.day
+          )}°C</div>
         </div>
           `;
   }
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
 }
-displayForecast();

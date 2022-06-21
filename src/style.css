@@ -65,10 +65,8 @@ a {
   font-weight: 500;
 }
 
-.days-cloudiness {
-  font-size: 16px;
-  color: #5c636e;
-  padding-top: 10px;
+.days-forecast-icon {
+  margin: 5px;
 }
 
 .temperature {
