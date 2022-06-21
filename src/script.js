@@ -93,7 +93,7 @@ let changeCity = function (event) {
   getApi(city.value);
 };
 
-getApi("Kyiv");
+getApi("Wroclaw");
 let searchCity = document.querySelector("#change-city-form");
 searchCity.addEventListener("submit", changeCity);
 let searchCityBut = document.querySelector("#search-city-button");
