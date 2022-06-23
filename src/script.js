@@ -31,10 +31,6 @@ function formatDate(timestamp) {
 }
 const apiKey = "f96a36c366f556dae54ef30478f423d0";
 //change city on form, add event on form
-function getApi(city) {
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${h1.innerHTML}&appid=${apiKey}&units=metric`;
-  axios(apiUrl).then(getWeather);
-}
 
 function getForecast(coordinates) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
@@ -62,7 +58,7 @@ let getWeather = function (response) {
   let icon = document.querySelector("#icon");
   icon.setAttribute("src", `images/${response.data.weather[0].icon}.svg`);
   icon.setAttribute("alt", response.data.weather[0].description);
-
+  toCelsius(event);
   getForecast(response.data.coord);
 };
 // get current location and current temperature
